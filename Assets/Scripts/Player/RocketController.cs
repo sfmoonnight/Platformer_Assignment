@@ -7,6 +7,7 @@ public class RocketController : MonoBehaviour
     Rigidbody2D rbody;
     GameManager gameManager;
     StatManager statManager;
+    EnergyManager energyManager;
 
     [SerializeField] float speed;
     [SerializeField] float force;
@@ -17,6 +18,7 @@ public class RocketController : MonoBehaviour
 
         gameManager = Toolbox.GetInstance().GetGameManager();
         statManager = Toolbox.GetInstance().GetStatManager();
+        energyManager = Toolbox.GetInstance().GetEnergyManager();
 
     }
 
@@ -32,7 +34,7 @@ public class RocketController : MonoBehaviour
             LateralMove(Vector2.right);
         }
 
-        if (Input.GetKey(KeyCode.Space) && gameManager.GetCurrentEnergy() > 0)
+        if (Input.GetKey(KeyCode.Space) && energyManager.GetCurrentEnergy() > 0)
         {
             Thrust();
         }

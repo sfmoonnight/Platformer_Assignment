@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] float energy;
-    [SerializeField] float eConsumingRate;
+    
     // Start is called before the first frame update
     void Start()
     {
-        energy = Toolbox.GetInstance().GetStatManager().GetMaxEnergy();
+        
     }
 
     // Update is called once per frame
@@ -18,13 +17,18 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void UseEnergy()
+    public void RestartGame()
     {
-        energy -= eConsumingRate;
+
     }
 
-    public float GetCurrentEnergy()
+    public void Respawn()
     {
-        return energy;
+
+    }
+
+    public void LoadLevel()
+    {
+
     }
 }

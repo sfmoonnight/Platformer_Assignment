@@ -20,6 +20,7 @@ public class Toolbox : MonoBehaviour
     /* Add your managers here */
     private GameManager gameManager;
     private StatManager statManager;
+    private EnergyManager energyManager;
 
     void Awake()
     {
@@ -33,6 +34,7 @@ public class Toolbox : MonoBehaviour
         DontDestroyOnLoad(go);
         this.gameManager = go.AddComponent<GameManager>();
         this.statManager = go.AddComponent<StatManager>();
+        this.energyManager = go.AddComponent<EnergyManager>();
     }
 
     // acess using Toolbox.GetInstance().GetManager();
@@ -44,5 +46,10 @@ public class Toolbox : MonoBehaviour
     public StatManager GetStatManager()
     {
         return this.statManager;
+    }
+
+    public EnergyManager GetEnergyManager()
+    {
+        return this.energyManager;
     }
 }

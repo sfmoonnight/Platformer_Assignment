@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StatManager : MonoBehaviour
 {
-    public float score;
-    public float maxEnergy;
+    public float score = 0;
+    public float maxEnergy = 100;
     // Start is called before the first frame update
     void Start()
     {
