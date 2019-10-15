@@ -6,16 +6,16 @@ public class EnergyManager : Timer
 {
     [SerializeField] float energy;
     float maxEnergy;
-    [SerializeField] float energyCost = 5;
+    [SerializeField] float energyCost = 2;
     [SerializeField] float energyRecover = 3;
 
     
 
     private void Start()
     {
-        interval = 0.1f;
+        SetInterval(0.1f);
         maxEnergy = Toolbox.GetInstance().GetStatManager().GetMaxEnergy();
-        energy = maxEnergy;
+        ResetEnergy();
     }
 
     public override void Action()
@@ -45,5 +45,10 @@ public class EnergyManager : Timer
     public float GetCurrentEnergy()
     {
         return energy;
+    }
+
+    public void ResetEnergy()
+    {
+        energy = maxEnergy;
     }
 }

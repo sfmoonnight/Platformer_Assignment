@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public abstract void OnHit();
+    public abstract void OnHit(Collision hit);
 }

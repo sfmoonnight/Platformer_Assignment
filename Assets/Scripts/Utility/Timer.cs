@@ -51,4 +51,9 @@ public abstract class Timer: MonoBehaviour
             EndTimer();
         }
     }
+
+    public void SetInterval(float newInterval)
+    {
+        interval = newInterval;
+    }
 }

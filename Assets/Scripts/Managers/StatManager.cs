@@ -37,4 +37,10 @@ public class StatManager : MonoBehaviour
     {
         return maxEnergy;
     }
+
+    public void ResetStats()
+    {
+        score = 0;
+        maxEnergy = 100;
+    }
 }

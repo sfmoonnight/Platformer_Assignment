@@ -8,6 +8,7 @@ public class RocketController : MonoBehaviour
     GameManager gameManager;
     StatManager statManager;
     EnergyManager energyManager;
+    bool disableReload = false;
 
     [SerializeField] float speed;
     [SerializeField] float force;
@@ -48,5 +49,21 @@ public class RocketController : MonoBehaviour
     void Thrust()
     {
         rbody.AddForce(force * Vector2.up);
+    }
+
+    void OnApplicationQuit()
+    {
+        print("quitting");
+        disableReload = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        print("outofsight");
+        if (!disableReload)
+        {
+            gameManager.Reload();
+            energyManager.ResetEnergy();
+        }
     }
 }
