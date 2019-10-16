@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
         currentLevel = index;
     }
 
+    public void LoadNextLevel()
+    {
+        currentLevel += 1;
+        SceneManager.LoadScene(currentLevel);
+    }
+
     public void PauseGame()
     {
         if (Time.timeScale == 1)
@@ -47,5 +53,10 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+    }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
     }
 }

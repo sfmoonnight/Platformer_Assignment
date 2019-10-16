@@ -4,26 +4,20 @@ using UnityEngine;
 
 public abstract class Timer: MonoBehaviour
 {
-    protected float interval = 1;
+    [SerializeField] protected float interval;
     float currentCycle;
-
     float initTime;
-    float duration;
-
-    bool timer = true;
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (timer)
-        {
-            RepeatCall();
-        }    
-    }
+    [SerializeField] protected float duration;
+    [SerializeField] protected bool timer;
 
     public abstract void Action();
 
-    void RepeatCall()
+    private void Update()
+    {
+        //if(timer)
+    }
+
+    public void RepeatCall()
     {
         if(Time.time - currentCycle > interval)
         {
@@ -32,12 +26,12 @@ public abstract class Timer: MonoBehaviour
         }
     }
 
-    public void StartTimer()
+    public virtual void StartTimer()
     {
         timer = true;
     }
 
-    public void EndTimer()
+    public virtual void EndTimer()
     {
         timer = false;
     }
@@ -46,8 +40,9 @@ public abstract class Timer: MonoBehaviour
     {
         StartTimer();
         initTime = Time.time;
-        if(Time.time - currentCycle > duration)
+        if(Time.time - initTime > duration)
         {
+            Action();
             EndTimer();
         }
     }

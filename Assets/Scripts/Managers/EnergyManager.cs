@@ -14,8 +14,17 @@ public class EnergyManager : Timer
     private void Start()
     {
         SetInterval(0.1f);
+        StartTimer();
         maxEnergy = Toolbox.GetInstance().GetStatManager().GetMaxEnergy();
         ResetEnergy();
+    }
+
+    private void Update()
+    {
+        if (timer)
+        {
+            RepeatCall();
+        }
     }
 
     public override void Action()

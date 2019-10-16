@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Interactable : MonoBehaviour
+public abstract class RocketInteractable : Interactable
 {
-    public abstract void OnHit();
+    
 }
