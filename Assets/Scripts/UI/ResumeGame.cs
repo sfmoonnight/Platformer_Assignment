@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : RocketInteractable
+public class ResumeGame : MonoBehaviour
 {
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +16,8 @@ public class Damage : RocketInteractable
         
     }
 
-    public override void OnHit()
+    public void Resume()
     {
-        print("Reload");
-        Toolbox.GetInstance().GetGameManager().Reload();
+        Toolbox.GetInstance().GetGameManager().ResumeGame();
     }
 }

@@ -5,11 +5,12 @@ using UnityEngine;
 public class Disappear : Timer
 {
     public GameObject sprite;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,5 +31,9 @@ public class Disappear : Timer
     {
         base.StartTimer();
         //playanimation
+        if (anim)
+        {
+            anim.SetTrigger("dissappear");
+        }
     }
 }

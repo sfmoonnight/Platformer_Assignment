@@ -23,6 +23,11 @@ public class StatManager : MonoBehaviour
         score = newScore;
     }
 
+    public void AddToScore(float point)
+    {
+        score += point;
+    }
+
     public float GetScore()
     {
         return score;

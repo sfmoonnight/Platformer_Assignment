@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dissappearable : RocketInteractable
+public class RestartGame : MonoBehaviour
 {
-    public Disappear dis;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +16,9 @@ public class Dissappearable : RocketInteractable
         
     }
 
-    public override void OnHit()
+    public void NewGame()
     {
-        if (dis)
-        {
-            dis.StartTimer();
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-        
+        Toolbox.GetInstance().GetGameManager().LoadLevel(0);
+        Toolbox.GetInstance().GetGameManager().ResumeGame();
     }
 }

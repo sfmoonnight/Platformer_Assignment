@@ -27,10 +27,27 @@ public class LinearMovement : Movement
 
     public override void MoveBehavior()
     {
-        if(Vector2.Distance(transform.position, startingPos) > distance)
+        if (Vector2.Distance(transform.position, startingPos) >= distance)
         {
-            direction = -direction;
+            if (isLooping)
+            {
+                direction = -direction;
+            }
+            else
+            {
+                Deactivate();         
+            }
         }
-        rbody.velocity = direction.normalized * speed;
+
+        if (rbody.velocity != direction.normalized * speed && isMoving)
+        {
+            rbody.velocity = direction.normalized * speed;
+        }
+    }
+
+    public override void Deactivate()
+    {
+        base.Deactivate();
+        rbody.velocity = Vector2.zero;
     }
 }

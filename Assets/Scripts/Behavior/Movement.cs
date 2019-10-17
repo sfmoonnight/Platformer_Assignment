@@ -13,17 +13,21 @@ public abstract class Movement : MonoBehaviour
         {
             MoveBehavior();
         }
+        else
+        {
+            Deactivate();
+        }
     }
 
     public abstract void MoveBehavior();
 
-    public void Activate()
-    {
-        isMoving = false;
-    }
-
-    public void Deactivate()
+    public virtual void Activate()
     {
         isMoving = true;
+    }
+
+    public virtual void Deactivate()
+    {
+        isMoving = false;
     }
 }

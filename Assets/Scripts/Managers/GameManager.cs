@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         //SceneManager.UnloadScene(currentLevel);
         //SceneManager.LoadScene(2);
         //SceneManager.LoadScene(1);
+   
         SceneManager.LoadScene(currentLevel);
     }
 
@@ -53,6 +54,16 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public int GetCurrentLevel()

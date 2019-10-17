@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : RocketInteractable
+public class Mineral : RocketInteractable
 {
-    
+    [SerializeField] float point;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,6 @@ public class Damage : RocketInteractable
 
     public override void OnHit()
     {
-        print("Reload");
-        Toolbox.GetInstance().GetGameManager().Reload();
+        Toolbox.GetInstance().GetStatManager().AddToScore(point);
     }
 }

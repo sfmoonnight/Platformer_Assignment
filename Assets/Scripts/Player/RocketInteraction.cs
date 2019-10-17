@@ -27,11 +27,15 @@ public class RocketInteraction : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("hit");
-        if (collision.gameObject.TryGetComponent(out RocketInteractable rocketInteractable))
+        
+        if (collision.collider.TryGetComponent(out RocketInteractable rocketInteractable))
         {
-            RocketInteractable ri = collision.gameObject.GetComponent<RocketInteractable>();
-            ri.OnHit();
+            print("hit");
+            RocketInteractable[] ris = collision.collider.GetComponents<RocketInteractable>();
+            foreach(RocketInteractable ri in ris)
+            {
+                ri.OnHit();
+            }           
         }
     }
 }
