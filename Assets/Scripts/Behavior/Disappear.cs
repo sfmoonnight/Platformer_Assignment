@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Disappear : Timer
 {
-    
+    public GameObject sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class Disappear : Timer
     // Update is called once per frame
     void Update()
     {
-        if (timer)
+        if (timerOn)
         {
             Countdown();
         }
@@ -23,12 +23,12 @@ public class Disappear : Timer
 
     public override void Action()
     {
-        //disappear
+        sprite.SetActive(false);
     }
 
     public override void StartTimer()
     {
         base.StartTimer();
-        //playanim
+        //playanimation
     }
 }

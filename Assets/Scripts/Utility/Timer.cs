@@ -8,7 +8,7 @@ public abstract class Timer: MonoBehaviour
     float currentCycle;
     float initTime;
     [SerializeField] protected float duration;
-    [SerializeField] protected bool timer;
+    [SerializeField] protected bool timerOn;
 
     public abstract void Action();
 
@@ -28,18 +28,17 @@ public abstract class Timer: MonoBehaviour
 
     public virtual void StartTimer()
     {
-        timer = true;
+        timerOn = true;
+        initTime = Time.time;
     }
 
     public virtual void EndTimer()
     {
-        timer = false;
+        timerOn = false;
     }
 
     public void Countdown()
     {
-        StartTimer();
-        initTime = Time.time;
         if(Time.time - initTime > duration)
         {
             Action();

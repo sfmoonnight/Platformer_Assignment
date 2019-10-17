@@ -21,7 +21,7 @@ public class EnergyManager : Timer
 
     private void Update()
     {
-        if (timer)
+        if (timerOn)
         {
             RepeatCall();
         }
