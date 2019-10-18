@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel);
         HideCursor(currentLevel);
         Toolbox.GetInstance().GetEnergyManager().ResetEnergy();
+        Toolbox.GetInstance().GetStatManager().ResetTempScore();
     }
 
     public void LoadLevel(int index)
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
         currentLevel = index;
         HideCursor(index);
         Toolbox.GetInstance().GetEnergyManager().ResetEnergy();
+        Toolbox.GetInstance().GetStatManager().ResetTempScore();
     }
 
     public void LoadNextLevel()
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel);
         HideCursor(currentLevel);
         Toolbox.GetInstance().GetEnergyManager().ResetEnergy();
+        Toolbox.GetInstance().GetStatManager().UpdateScore();
     }
 
     public void PauseGame()
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             pauseMenu.GetComponent<CanvasGroup>().alpha = 1;
+            pauseMenu.GetComponent<CanvasGroup>().interactable = true;
             Cursor.visible = true;
         }
         else if (Time.timeScale == 0)
@@ -71,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+        pauseMenu.GetComponent<CanvasGroup>().interactable = false;
         HideCursor(currentLevel);
     }
 

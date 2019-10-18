@@ -19,6 +19,8 @@ public class RestartGame : MonoBehaviour
     public void NewGame()
     {
         Toolbox.GetInstance().GetGameManager().LoadLevel(0);
-        Toolbox.GetInstance().GetGameManager().ResumeGame();
+        Time.timeScale = 1;
+        //Toolbox.GetInstance().GetGameManager().ResumeGame();
+        Toolbox.GetInstance().GetStatManager().ResetStats();
     }
 }

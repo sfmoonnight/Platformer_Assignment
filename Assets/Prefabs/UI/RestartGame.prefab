@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8866035007165091818}
   - component: {fileID: 8276442922729212312}
   - component: {fileID: 8461794706902743980}
-  - component: {fileID: 4568814971058921919}
+  - component: {fileID: 1914338341787067950}
   m_Layer: 5
   m_Name: RestartGame
   m_TagString: Untagged
@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: bc465d17f740a7e4e81683c93a9c7e9e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4568814971058921919}
+      - m_Target: {fileID: 1914338341787067950}
         m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
@@ -134,7 +134,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4568814971058921919
+--- !u!114 &1914338341787067950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3743057180656409132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c75a13ce5ec3948c1800932d3266a954, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f2308ea00d358e4b8a1147105d27b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8482001517752115441
@@ -224,4 +224,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 

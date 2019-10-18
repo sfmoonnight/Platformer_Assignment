@@ -9,6 +9,7 @@ public class RocketController : MonoBehaviour
     StatManager statManager;
     EnergyManager energyManager;
     bool disableReload = false;
+    Animator anim;
 
     [SerializeField] float speed;
     [SerializeField] float force;
@@ -16,6 +17,7 @@ public class RocketController : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         gameManager = Toolbox.GetInstance().GetGameManager();
         statManager = Toolbox.GetInstance().GetStatManager();
@@ -38,6 +40,11 @@ public class RocketController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && energyManager.GetCurrentEnergy() > 0)
         {
             Thrust();
+            anim.SetBool("launching", true);
+        }
+        else
+        {
+            anim.SetBool("launching", false);
         }
     }
 

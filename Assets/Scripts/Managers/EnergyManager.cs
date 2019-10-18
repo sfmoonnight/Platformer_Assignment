@@ -9,6 +9,7 @@ public class EnergyManager : Timer
     [SerializeField] float energyCost = 3;
     [SerializeField] float energyRecover = 2;
 
+
     
 
     private void Start()

@@ -6,6 +6,8 @@ public class StatManager : MonoBehaviour
 {
     public float score = 0;
     public float maxEnergy = 100;
+
+    float tempScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +20,14 @@ public class StatManager : MonoBehaviour
         
     }
 
-    public void UpdateScore(float newScore)
+    public void UpdateScore()
     {
-        score = newScore;
+        score = tempScore;
     }
 
     public void AddToScore(float point)
     {
-        score += point;
+        tempScore += point;
     }
 
     public float GetScore()
@@ -46,6 +48,12 @@ public class StatManager : MonoBehaviour
     public void ResetStats()
     {
         score = 0;
+        tempScore = 0;
         maxEnergy = 100;
+    }
+
+    public void ResetTempScore()
+    {
+        tempScore = score;
     }
 }
