@@ -7,7 +7,7 @@ public abstract class Movement : MonoBehaviour
     [SerializeField] public bool isMoving;
     [SerializeField] public bool isLooping;
 
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         if (isMoving)
         {

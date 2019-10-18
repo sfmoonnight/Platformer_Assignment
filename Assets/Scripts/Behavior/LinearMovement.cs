@@ -10,7 +10,8 @@ public class LinearMovement : Movement
 
     Rigidbody2D rbody;
     Vector2 startingPos;
-    Vector2 endPos;
+    Vector2 lastPos;
+    [SerializeField] Vector2 endPos;
 
     // Start is called before the first frame update
     void Start()
@@ -20,18 +21,23 @@ public class LinearMovement : Movement
         endPos = startingPos + direction.normalized * distance;
     }
 
-    public override void Update()
+    public override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
     }
+
+    /*private void FixedUpdate()
+    {
+        lastPos = transform.position;
+    }*/
 
     public override void MoveBehavior()
     {
-        if (Vector2.Distance(transform.position, startingPos) >= distance)
-        {
+        if (Vector2.Distance(transform.position, startingPos) > distance)
+        {  
             if (isLooping)
-            {
-                direction = -direction;
+            {  
+                direction = -direction;            
             }
             else
             {
@@ -39,10 +45,10 @@ public class LinearMovement : Movement
             }
         }
 
-        if (rbody.velocity != direction.normalized * speed && isMoving)
+        if(rbody.velocity != direction.normalized * speed && isMoving)
         {
             rbody.velocity = direction.normalized * speed;
-        }
+        }        
     }
 
     public override void Deactivate()

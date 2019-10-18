@@ -6,8 +6,8 @@ public class EnergyManager : Timer
 {
     [SerializeField] float energy;
     float maxEnergy;
-    [SerializeField] float energyCost = 2;
-    [SerializeField] float energyRecover = 3;
+    [SerializeField] float energyCost = 3;
+    [SerializeField] float energyRecover = 2;
 
     
 

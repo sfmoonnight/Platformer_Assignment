@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int currentLevel;
+    GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            pauseMenu = GameObject.Find("PauseMenu");
             PauseGame();
         }
     }
@@ -30,18 +33,24 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(1);
    
         SceneManager.LoadScene(currentLevel);
+        HideCursor(currentLevel);
+        Toolbox.GetInstance().GetEnergyManager().ResetEnergy();
     }
 
     public void LoadLevel(int index)
     {
         SceneManager.LoadScene(index);
         currentLevel = index;
+        HideCursor(index);
+        Toolbox.GetInstance().GetEnergyManager().ResetEnergy();
     }
 
     public void LoadNextLevel()
     {
         currentLevel += 1;
         SceneManager.LoadScene(currentLevel);
+        HideCursor(currentLevel);
+        Toolbox.GetInstance().GetEnergyManager().ResetEnergy();
     }
 
     public void PauseGame()
@@ -49,16 +58,20 @@ public class GameManager : MonoBehaviour
         if (Time.timeScale == 1)
         {
             Time.timeScale = 0;
+            pauseMenu.GetComponent<CanvasGroup>().alpha = 1;
+            Cursor.visible = true;
         }
         else if (Time.timeScale == 0)
         {
-            Time.timeScale = 1;
+            ResumeGame();
         }
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
+        pauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+        HideCursor(currentLevel);
     }
 
     public void QuitGame()
@@ -69,5 +82,17 @@ public class GameManager : MonoBehaviour
     public int GetCurrentLevel()
     {
         return currentLevel;
+    }
+
+    public void HideCursor(int index)
+    {
+        if (index > 0 && index < 4)
+        {
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.visible = true;
+        }
     }
 }
